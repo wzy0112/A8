@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration>
+    <input>
+        <net-file value="D:\SUMO_A9_Project\sumo\a8_corridor.net.xml" />
+        <route-files value="D:\SUMO_A9_Project\routes\a8_od_spsa.trips.xml" />
+        <additional-files value="D:\SUMO_A9_Project\detectors\a8_detectors_merged.add.xml" />
+    </input>
+    <time>
+        <begin value="0" />
+        <end value="3600" />
+    </time>
+    <processing>
+        <ignore-route-errors value="true" />
+        <time-to-teleport value="-1" />
+        <ignore-junction-blocker value="15" />
+    </processing>
+    <routing>
+        <device.rerouting.probability value="0.82" />
+        <device.rerouting.period value="300" />
+        <weights.random-factor value="1.2" />
+        <device.rerouting.threshold.factor value="1.05" />
+        <device.rerouting.threshold.constant value="60" />
+    </routing>
+    <random_number>
+        <seed value="42" />
+    </random_number>
+</configuration>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configuration>
+    <input>
+        <net-file value="D:\SUMO_A9_Project\sumo\a8_corridor.net.xml" />
+        <route-files value="D:\SUMO_A9_Project\routes\a8_od_reroute_7zones.trips.xml" />
+    </input>
+    <time>
+        <begin value="0" />
+        <end value="3600" />
+    </time>
+    <processing>
+        <ignore-route-errors value="true" />
+        <time-to-teleport value="-1" />
+    </processing>
+    <routing>
+        <device.rerouting.probability value="1" />
+        <device.rerouting.period value="30" />
+        <weights.random-factor value="1.2" />
+        <device.rerouting.threshold.factor value="1.05" />
+        <device.rerouting.threshold.constant value="120" />
+    </routing>
+    <report>
+        <verbose value="true" />
+        <no-warnings value="false" />
+    </report>
+    <random_number>
+        <seed value="42" />
+    </random_number>
+</configuration>

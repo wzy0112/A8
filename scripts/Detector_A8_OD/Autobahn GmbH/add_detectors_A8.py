@@ -1,0 +1,301 @@
+import os
+import sys
+import csv
+import xml.etree.ElementTree as ET
+
+from openpyxl import load_workbook
+
+
+SUMO_HOME = r"D:\Eclipse\SUMO"
+
+
+def load_sumo_tools():
+    tools_path = os.path.join(SUMO_HOME, "tools")
+    if tools_path not in sys.path:
+        sys.path.append(tools_path)
+
+    try:
+        import sumolib  # noqa: F401
+    except ImportError as e:
+        raise ImportError(
+            f"Cannot import sumolib from SUMO tools path: {tools_path}"
+        ) from e
+
+    import sumolib
+    return sumolib
+
+
+def get_neighboring_edges(net, x, y, radius):
+    """
+    Compatibility wrapper for different SUMO versions.
+    """
+    try:
+        return net.getNeighboringEdges(x, y, radius, includeJunctions=False)
+    except TypeError:
+        return net.getNeighboringEdges(x, y, radius)
+
+
+def lane_is_usable(lane):
+    """
+    Keep only lanes that are usable for road vehicles.
+    """
+    try:
+        return not lane.allows("pedestrian")
+    except Exception:
+        return True
+
+
+def read_sensor_table(sensor_xlsx):
+    """
+    Read only the first three columns from Excel:
+    column 1 = sensor_id
+    column 2 = longitude
+    column 3 = latitude
+    """
+    if not os.path.exists(sensor_xlsx):
+        print("[ERROR] Sensor file not found:")
+        print(sensor_xlsx)
+        return []
+
+    workbook = load_workbook(sensor_xlsx, data_only=True)
+    sheet = workbook.active
+
+    sensors = []
+
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        sensor_id = row[0]
+        lon = row[1]
+        lat = row[2]
+
+        if sensor_id is None or lon is None or lat is None:
+            continue
+
+        try:
+            sensors.append({
+                "sensor_id": str(sensor_id),
+                "lon": float(lon),
+                "lat": float(lat),
+            })
+        except ValueError:
+            continue
+
+    return sensors
+
+
+def find_best_lane_for_sensor(net, lon, lat, search_radii=None):
+    """
+    Convert lon/lat to SUMO XY and find the nearest usable lane.
+    """
+    if search_radii is None:
+        search_radii = [30, 60, 100, 200, 400, 800]
+
+    x, y = net.convertLonLat2XY(lon, lat)
+
+    best_match = None
+
+    for radius in search_radii:
+        neighboring_edges = get_neighboring_edges(net, x, y, radius)
+
+        for edge, edge_dist in neighboring_edges:
+            if edge.isSpecial():
+                continue
+
+            for lane in edge.getLanes():
+                if not lane_is_usable(lane):
+                    continue
+
+                lane_length = lane.getLength()
+                if lane_length < 10:
+                    continue
+
+                try:
+                    lane_pos, lane_dist = lane.getClosestLanePosAndDist((x, y))
+                except Exception:
+                    lane_pos = lane_length / 2.0
+                    lane_dist = edge_dist
+
+                lane_pos = max(5.0, min(lane_pos, lane_length - 5.0))
+
+                candidate = {
+                    "edge_id": edge.getID(),
+                    "lane_id": lane.getID(),
+                    "lane_pos": round(lane_pos, 2),
+                    "distance_m": round(float(lane_dist), 2),
+                    "search_radius_m": radius,
+                }
+
+                if best_match is None or candidate["distance_m"] < best_match["distance_m"]:
+                    best_match = candidate
+
+        if best_match is not None:
+            return best_match
+
+    return None
+
+
+def write_detector_additional_file(detector_records, additional_file, detector_output_file, freq=60):
+    """
+    Write SUMO induction-loop detectors into an additional XML file.
+    """
+    root = ET.Element("additional")
+
+    for record in detector_records:
+        if not record["matched"]:
+            continue
+
+        ET.SubElement(
+            root,
+            "inductionLoop",
+            {
+                "id": record["sensor_id"],
+                "lane": record["lane_id"],
+                "pos": str(record["lane_pos"]),
+                "freq": str(freq),
+                "file": detector_output_file,
+                "friendlyPos": "true",
+            }
+        )
+
+    tree = ET.ElementTree(root)
+    ET.indent(tree, space="    ")
+    tree.write(additional_file, encoding="utf-8", xml_declaration=True)
+
+
+def write_mapping_csv(detector_records, mapping_csv):
+    """
+    Export sensor-to-lane mapping results for manual checking.
+    """
+    fieldnames = [
+        "sensor_id",
+        "lon",
+        "lat",
+        "matched",
+        "edge_id",
+        "lane_id",
+        "lane_pos",
+        "distance_m",
+        "search_radius_m",
+    ]
+
+    with open(mapping_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for record in detector_records:
+            writer.writerow({
+                "sensor_id": record["sensor_id"],
+                "lon": record["lon"],
+                "lat": record["lat"],
+                "matched": record["matched"],
+                "edge_id": record.get("edge_id", ""),
+                "lane_id": record.get("lane_id", ""),
+                "lane_pos": record.get("lane_pos", ""),
+                "distance_m": record.get("distance_m", ""),
+                "search_radius_m": record.get("search_radius_m", ""),
+            })
+
+
+def add_detectors():
+    # =====================================
+    # 1. Project paths
+    # =====================================
+    project_root = r"D:\SUMO_A9_Project"
+
+    net_file = os.path.join(project_root, "sumo", "a8_corridor.net.xml")
+    sensor_xlsx = os.path.join(project_root, "detectors", "Sensor.xlsx")
+
+    detector_dir = os.path.join(project_root, "detectors")
+    os.makedirs(detector_dir, exist_ok=True)
+
+    additional_file = os.path.join(detector_dir, "a8_detectors.add.xml")
+    mapping_csv = os.path.join(detector_dir, "a8_detector_mapping.csv")
+    detector_output_file = os.path.join(detector_dir, "a8_e1_output.xml")
+
+    # =====================================
+    # 2. Check files    # =====================================
+    if not os.path.exists(net_file):
+        print("[ERROR] Network file not found:")
+        print(net_file)
+        return
+
+    if not os.path.exists(sensor_xlsx):
+        print("[ERROR] Sensor Excel file not found:")
+        print(sensor_xlsx)
+        return
+
+    # =====================================
+    # 3. Load SUMO tools
+    # =====================================
+    sumolib = load_sumo_tools()
+
+    print("=====================================")
+    print("Loading SUMO network and sensor table")
+    print(f"Network file : {net_file}")
+    print(f"Sensor file  : {sensor_xlsx}")
+    print("=====================================")
+
+    net = sumolib.net.readNet(net_file)
+    sensors = read_sensor_table(sensor_xlsx)
+
+    print(f"[INFO] Sensors loaded: {len(sensors)}")
+
+    if not sensors:
+        print("[ERROR] No usable sensors found in the Excel file.")
+        return
+
+    # =====================================
+    # 4. Match sensors to nearest lanes
+    # =====================================
+    detector_records = []
+
+    for sensor in sensors:
+        match = find_best_lane_for_sensor(
+            net=net,
+            lon=sensor["lon"],
+            lat=sensor["lat"]
+        )
+
+        record = dict(sensor)
+
+        if match is None:
+            record["matched"] = False
+            print(f"[WARNING] No lane match found for sensor: {sensor['sensor_id']}")
+        else:
+            record["matched"] = True
+            record.update(match)
+            print(
+                f"[MATCH] {record['sensor_id']} -> "
+                f"{record['lane_id']} at {record['lane_pos']} m "
+                f"(distance = {record['distance_m']} m)"
+            )
+
+        detector_records.append(record)
+
+    # =====================================
+    # 5. Write outputs
+    # =====================================
+    write_detector_additional_file(
+        detector_records=detector_records,
+        additional_file=additional_file,
+        detector_output_file=detector_output_file,
+        freq=60
+    )
+
+    write_mapping_csv(
+        detector_records=detector_records,
+        mapping_csv=mapping_csv
+    )
+
+    matched_count = sum(1 for r in detector_records if r["matched"])
+
+    print("=====================================")
+    print("[SUCCESS] Detector generation completed.")
+    print(f"Matched sensors      : {matched_count} / {len(detector_records)}")
+    print(f"Detector file        : {additional_file}")
+    print(f"Mapping CSV          : {mapping_csv}")
+    print(f"Detector output file : {detector_output_file}")
+    print("=====================================")
+
+
+if __name__ == "__main__":
+    add_detectors()

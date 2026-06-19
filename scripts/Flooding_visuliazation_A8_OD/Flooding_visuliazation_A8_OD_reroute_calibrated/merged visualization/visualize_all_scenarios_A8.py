@@ -1,0 +1,531 @@
+import os
+import sys
+import xml.etree.ElementTree as ET
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection
+
+# 每一种情景下，交通状态长什么样？
+#speed flow density vc
+SUMO_HOME = r"D:\Eclipse\SUMO"
+
+
+def load_sumo_tools():
+    tools_path = os.path.join(SUMO_HOME, "tools")
+    if tools_path not in sys.path:
+        sys.path.append(tools_path)
+
+    import sumolib
+    return sumolib
+
+
+def parse_edge_output(edge_output_file):
+    """
+    Parse SUMO edgeData output.
+    """
+    if not os.path.exists(edge_output_file):
+        print("[ERROR] Edge output file not found:")
+        print(edge_output_file)
+        return pd.DataFrame()
+
+    tree = ET.parse(edge_output_file)
+    root = tree.getroot()
+
+    records = []
+
+    for interval in root.findall("interval"):
+        begin = float(interval.get("begin", -1))
+        end = float(interval.get("end", -1))
+
+        for edge in interval.findall("edge"):
+            records.append({
+                "begin": begin,
+                "end": end,
+                "edge_id": edge.get("id", ""),
+                "sampledSeconds": float(edge.get("sampledSeconds", 0)),
+                "density": float(edge.get("density", 0)),
+                "laneDensity": float(edge.get("laneDensity", 0)),
+                "speed": float(edge.get("speed", -1)),
+                "occupancy": float(edge.get("occupancy", 0)),
+                "traveltime": float(edge.get("traveltime", -1)),
+                "entered": float(edge.get("entered", 0)),
+                "left": float(edge.get("left", 0)),
+            })
+
+    return pd.DataFrame(records)
+
+def parse_tripinfo(tripinfo_file):
+    if not os.path.exists(tripinfo_file):
+        print("[WARNING] tripinfo file not found:", tripinfo_file)
+        return pd.DataFrame()
+
+    tree = ET.parse(tripinfo_file)
+    root = tree.getroot()
+
+    records = []
+    for trip in root.findall("tripinfo"):
+        records.append({
+            "id": trip.get("id"),
+            "depart": float(trip.get("depart", 0)),
+            "arrival": float(trip.get("arrival", 0)),
+            "duration": float(trip.get("duration", 0)),
+            "routeLength": float(trip.get("routeLength", 0)),
+            "waitingTime": float(trip.get("waitingTime", 0)),
+            "timeLoss": float(trip.get("timeLoss", 0)),
+        })
+
+    return pd.DataFrame(records)
+
+
+def parse_summary(summary_file):
+    if not os.path.exists(summary_file):
+        print("[WARNING] summary file not found:", summary_file)
+        return pd.DataFrame()
+
+    tree = ET.parse(summary_file)
+    root = tree.getroot()
+
+    records = []
+    for step in root.findall("step"):
+        records.append({
+            "time": float(step.get("time", 0)),
+            "loaded": float(step.get("loaded", 0)),
+            "inserted": float(step.get("inserted", 0)),
+            "running": float(step.get("running", 0)),
+            "waiting": float(step.get("waiting", 0)),
+            "ended": float(step.get("ended", 0)),
+        })
+
+    return pd.DataFrame(records)
+
+
+def load_step_metrics(step_metrics_file):
+    if not os.path.exists(step_metrics_file):
+        print("[WARNING] step metrics file not found:", step_metrics_file)
+        return pd.DataFrame()
+
+    return pd.read_csv(step_metrics_file)
+
+def build_edge_geometry(net):
+    """
+    Extract geometry for each edge as a list of line segments.
+    """
+    edge_geom = {}
+
+    for edge in net.getEdges():
+        if edge.isSpecial():
+            continue
+
+        shape = edge.getShape()
+        if shape is None or len(shape) < 2:
+            continue
+
+        segments = []
+        for i in range(len(shape) - 1):
+            segments.append([shape[i], shape[i + 1]])
+
+        edge_geom[edge.getID()] = segments
+
+    return edge_geom
+
+
+def aggregate_edge_metric(df, metric):
+    """
+    Aggregate a metric over time for each edge.
+    """
+    if df.empty:
+        return pd.DataFrame()
+
+    work_df = df.copy()
+
+    if metric in ["speed", "traveltime"]:
+        work_df.loc[work_df[metric] < 0, metric] = np.nan
+
+    grouped = work_df.groupby("edge_id", as_index=False)[metric].mean()
+    grouped = grouped.rename(columns={metric: "value"})
+    return grouped
+
+
+def compute_flow_proxy(df):
+    """
+    Compute a simple flow proxy from entered vehicles per interval.
+    Since freq=60 s, entered * 60 = veh/h.
+    """
+    if df.empty:
+        return pd.DataFrame()
+
+    work_df = df.copy()
+    interval_seconds = work_df["end"] - work_df["begin"]
+    interval_seconds = interval_seconds.replace(0, np.nan)
+
+    work_df["flow_proxy"] = work_df["entered"] / interval_seconds * 3600.0
+    grouped = work_df.groupby("edge_id", as_index=False)["flow_proxy"].mean()
+    grouped = grouped.rename(columns={"flow_proxy": "value"})
+    return grouped
+
+def compute_vc_ratio(df, net):
+    """
+    Compute v/c ratio = flow / capacity
+    """
+    if df.empty:
+        return pd.DataFrame()
+
+    work_df = df.copy()
+
+    # ===== 1. 计算 flow（veh/h） =====
+    interval_seconds = work_df["end"] - work_df["begin"]
+    interval_seconds = interval_seconds.replace(0, np.nan)
+
+    work_df["flow"] = work_df["entered"] / interval_seconds * 3600.0
+
+    # ===== 2. 获取 edge 属性 =====
+    capacity_list = []
+
+    for edge_id in work_df["edge_id"]:
+        try:
+            edge = net.getEdge(edge_id)
+            num_lanes = edge.getLaneNumber()
+            edge_type = edge.getType()
+        except:
+            capacity_list.append(np.nan)
+            continue
+
+        # ===== 3. capacity rule =====
+        if edge_type and ("motorway" in edge_type or "highway.motorway" in edge_type):
+            cap_per_lane = 2000
+        else:
+            cap_per_lane = 800
+
+        capacity = num_lanes * cap_per_lane
+        capacity_list.append(capacity)
+
+    work_df["capacity"] = capacity_list
+
+    # ===== 4. v/c =====
+    work_df["vc"] = work_df["flow"] / work_df["capacity"]
+
+    grouped = work_df.groupby("edge_id", as_index=False)["vc"].mean()
+    grouped = grouped.rename(columns={"vc": "value"})
+
+    return grouped
+
+def plot_network_heatmap(net, edge_geom, metric_df, title, colorbar_label, output_file, cmap_type="density"):
+    import matplotlib.colors as mcolors
+
+    value_map = dict(zip(metric_df["edge_id"], metric_df["value"]))
+
+    segments = []
+    values = []
+
+    for edge_id, segs in edge_geom.items():
+        # If this edge has no data, assign 0 so it is still drawn
+        val = value_map.get(edge_id, 0)
+
+        # If the value is NaN, also assign 0
+        if pd.isna(val):
+            val = 0
+
+        for seg in segs:
+            segments.append(seg)
+            values.append(val)
+
+    if not segments:
+        print(f"[WARNING] No segments available for plot: {title}")
+        return
+
+    # 🔥 normalization（核心）
+    vmin = np.percentile(values, 5)
+    vmax = np.percentile(values, 95)
+    norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
+
+    # 🔥 colormap 选择
+    if cmap_type == "density":
+        cmap = "RdYlGn_r"
+    elif cmap_type == "flow":
+        cmap = "RdYlGn_r"
+    elif cmap_type == "speed":
+        cmap = "RdYlGn"
+    elif cmap_type == "v/c":
+        cmap = "RdYlGn_r"
+    else:
+        cmap = "viridis"
+
+    fig, ax = plt.subplots(figsize=(12, 10))
+
+    lc = LineCollection(
+        segments,
+        array=np.array(values),
+        linewidths=2,
+        cmap=cmap,
+        norm=norm
+    )
+
+    ax.add_collection(lc)
+    ax.autoscale()
+    ax.set_aspect("equal")
+    ax.set_axis_off()
+    ax.set_title(title)
+
+    cbar = plt.colorbar(lc, ax=ax, shrink=0.8)
+    cbar.set_label(colorbar_label)
+
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300, bbox_inches="tight")
+    plt.close()
+
+    print(f"[SUCCESS] Saved heatmap: {output_file}")
+
+def plot_mean_speed_time(step_df, scenario_name, output_file):
+    if step_df.empty:
+        return
+
+    plt.figure(figsize=(12, 5))
+    plt.plot(step_df["time_s"], step_df["mean_speed_mps"])
+    plt.xlabel("Time (s)")
+    plt.ylabel("Mean speed (m/s)")
+    plt.title(f"{scenario_name} - Mean Speed vs Time")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300)
+    plt.close()
+
+def plot_vehicles_in_network(step_df, scenario_name, output_file):
+    if step_df.empty:
+        return
+
+    plt.figure(figsize=(12, 5))
+    plt.plot(step_df["time_s"], step_df["running_vehicle_count"])
+    plt.xlabel("Time (s)")
+    plt.ylabel("Running vehicles")
+    plt.title(f"{scenario_name} - Vehicles in Network vs Time")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300)
+    plt.close()
+
+def plot_recovery_curve(summary_df, scenario_name, output_file):
+    if summary_df.empty:
+        return
+
+    plt.figure(figsize=(12, 5))
+    plt.plot(summary_df["time"], summary_df["running"])
+    plt.xlabel("Time (s)")
+    plt.ylabel("Vehicles remaining in network")
+    plt.title(f"{scenario_name} - Recovery Curve")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300)
+    plt.close()
+
+def plot_travel_time_cdf(trip_df, scenario_name, output_file):
+    if trip_df.empty:
+        return
+
+    values = np.sort(trip_df["duration"].dropna().values)
+    y = np.arange(1, len(values) + 1) / len(values)
+
+    plt.figure(figsize=(8, 6))
+    plt.plot(values, y)
+    plt.xlabel("Travel time (s)")
+    plt.ylabel("Cumulative probability")
+    plt.title(f"{scenario_name} - Travel Time CDF")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300)
+    plt.close()
+
+def plot_timeloss_boxplot(trip_df, scenario_name, output_file):
+    if trip_df.empty:
+        return
+
+    plt.figure(figsize=(6, 6))
+    plt.boxplot(trip_df["timeLoss"].dropna().values, labels=[scenario_name])
+    plt.ylabel("Time loss (s)")
+    plt.title(f"{scenario_name} - TimeLoss Boxplot")
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(output_file, dpi=300)
+    plt.close()
+
+def visualize_one_scenario(
+    scenario_key,
+    scenario_label,
+    edge_output_file,
+    output_prefix,
+    net,
+    edge_geom,
+    results_dir
+):
+    """
+    Visualize speed / flow / density / v/c heatmaps for one scenario.
+    This function keeps the same logic as the original single-scenario scripts,
+    but only changes the input edge output file and output file names.
+    """
+    print("=====================================")
+    print(f"[SCENARIO] {scenario_label}")
+    print(f"Edge output file: {edge_output_file}")
+    print("=====================================")
+
+    if not os.path.exists(edge_output_file):
+        print("[ERROR] Edge output file not found:")
+        print(edge_output_file)
+        return
+
+    output_speed = os.path.join(results_dir, f"{output_prefix}_speed_heatmap.png")
+    output_flow = os.path.join(results_dir, f"{output_prefix}_flow_heatmap.png")
+    output_density = os.path.join(results_dir, f"{output_prefix}_density_heatmap.png")
+    output_vc = os.path.join(results_dir, f"{output_prefix}_vc_heatmap.png")
+
+    df = parse_edge_output(edge_output_file)
+
+    if df.empty:
+        print(f"[ERROR] No edge data found for scenario: {scenario_label}")
+        return
+
+    speed_df = aggregate_edge_metric(df, "speed")
+    density_df = aggregate_edge_metric(df, "density")
+    flow_df = compute_flow_proxy(df)
+    vc_df = compute_vc_ratio(df, net)
+
+    plot_network_heatmap(
+        net=net,
+        edge_geom=edge_geom,
+        metric_df=speed_df,
+        title=f"{scenario_label} - Network Mean Speed Heatmap",
+        colorbar_label="Speed (m/s)",
+        output_file=output_speed,
+        cmap_type="speed"
+    )
+
+    plot_network_heatmap(
+        net=net,
+        edge_geom=edge_geom,
+        metric_df=flow_df,
+        title=f"{scenario_label} - Network Mean Flow Heatmap",
+        colorbar_label="Flow Proxy (veh/h)",
+        output_file=output_flow,
+        cmap_type="flow"
+    )
+
+    plot_network_heatmap(
+        net=net,
+        edge_geom=edge_geom,
+        metric_df=density_df,
+        title=f"{scenario_label} - Network Mean Density Heatmap",
+        colorbar_label="Density (veh/km)",
+        output_file=output_density,
+        cmap_type="density"
+    )
+
+    plot_network_heatmap(
+        net=net,
+        edge_geom=edge_geom,
+        metric_df=vc_df,
+        title=f"{scenario_label} - Network Mean v/c Ratio Heatmap",
+        colorbar_label="v/c Ratio",
+        output_file=output_vc,
+        cmap_type="v/c"
+    )
+
+
+def visualize_all_scenarios():
+    # =====================================
+    # 1. Project paths
+    # =====================================
+    project_root = r"D:\SUMO_A9_Project"
+
+    net_file = os.path.join(project_root, "sumo", "a8_corridor.net.xml")
+    results_dir = os.path.join(project_root, "heat_edges")
+    os.makedirs(results_dir, exist_ok=True)
+
+    # =====================================
+    # 2. Four scenarios
+    #    Only edit file names here if your output names change.
+    # =====================================
+    scenarios = [
+        {
+            "key": "baseline",
+            "label": "Baseline",
+            "edge_output_file": os.path.join(
+                results_dir,
+                "a8_edge_output_od_reroute_calibrated.xml"
+            ),
+            "step_metrics": os.path.join(results_dir, "a8_step_metrics_od_reroute_calibrated.csv"),
+            "summary": os.path.join(results_dir, "a8_summary_od_reroute_calibrated.xml"),
+            "tripinfo": os.path.join(results_dir, "a8_tripinfo_od_reroute_calibrated.xml"),
+            "output_prefix": "baseline"
+        },
+        {
+            "key": "speedlimit",
+            "label": "Speed limit / Light flooding",
+            "edge_output_file": os.path.join(
+                results_dir,
+                "a8_flood_edge_output_od_reroute.xml"
+            ),
+            "output_prefix": "speedlimit_light_flooding"
+        },
+        {
+            "key": "laneclose",
+            "label": "Lane close / Moderate flooding",
+            "edge_output_file": os.path.join(
+                results_dir,
+                "a8_lane_close_edge_output_od_reroute.xml"
+            ),
+            "output_prefix": "laneclose_moderate_flooding"
+        },
+        {
+            "key": "edgeclose",
+            "label": "Edge close / Severe flooding",
+            "edge_output_file": os.path.join(
+                results_dir,
+                "a8_full_close_edge_output_od_reroute.xml"
+            ),
+            "output_prefix": "edgeclose_severe_flooding"
+        },
+    ]
+
+    # =====================================
+    # 3. Check network
+    # =====================================
+    if not os.path.exists(net_file):
+        print("[ERROR] Network file not found:")
+        print(net_file)
+        return
+
+    print("=====================================")
+    print("Visualizing all scenarios")
+    print(f"Network file  : {net_file}")
+    print(f"Results folder: {results_dir}")
+    print("=====================================")
+
+    # =====================================
+    # 4. Load SUMO network only once
+    # =====================================
+    sumolib = load_sumo_tools()
+    net = sumolib.net.readNet(net_file)
+    edge_geom = build_edge_geometry(net)
+
+    # =====================================
+    # 5. Run four scenarios in one script
+    # =====================================
+    for scenario in scenarios:
+        visualize_one_scenario(
+            scenario_key=scenario["key"],
+            scenario_label=scenario["label"],
+            edge_output_file=scenario["edge_output_file"],
+            output_prefix=scenario["output_prefix"],
+            net=net,
+            edge_geom=edge_geom,
+            results_dir=results_dir
+        )
+
+    print("=====================================")
+    print("[SUCCESS] All scenario heatmap visualizations completed.")
+    print(f"Results folder: {results_dir}")
+    print("=====================================")
+
+
+if __name__ == "__main__":
+    visualize_all_scenarios()

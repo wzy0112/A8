@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<additional>
+    <poi id="place_Dachau" type="place" color="0,0,255" layer="20" lon="11.434" lat="48.26" />
+    <poi id="place_Karlsfeld" type="place" color="0,0,255" layer="20" lon="11.466" lat="48.23" />
+    <poi id="place_Olching" type="place" color="0,0,255" layer="20" lon="11.333" lat="48.208" />
+    <poi id="place_Gröbenzell" type="place" color="0,0,255" layer="20" lon="11.365" lat="48.196" />
+    <poi id="place_Sulzemoos" type="place" color="0,0,255" layer="20" lon="11.263" lat="48.291" />
+    <poi id="place_Odelzhausen" type="place" color="0,0,255" layer="20" lon="11.198" lat="48.315" />
+    <poi id="place_Einsbach" type="place" color="0,0,255" layer="20" lon="11.268" lat="48.264" />
+    <poi id="water_Amper" type="water" color="0,180,255" layer="18" lon="11.415" lat="48.252" />
+    <poi id="water_Ampersee" type="water" color="0,180,255" layer="18" lon="11.302" lat="48.251" />
+    <poi id="water_Würm" type="water" color="0,180,255" layer="18" lon="11.408" lat="48.201" />
+    <poi id="motorway_A8" type="motorway" color="255,128,0" layer="25" lon="11.258" lat="48.262" />
+    <poi id="motorway_A99" type="motorway" color="255,128,0" layer="25" lon="11.401" lat="48.221" />
+</additional>

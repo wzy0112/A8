@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewsettings>
+    <scheme name="a8_custom">
+        <poi show="1" size="60" name_show="1" type_show="0"/>
+        <poly show="1" size="60" type_show="0"/>
+    </scheme>
+</viewsettings>

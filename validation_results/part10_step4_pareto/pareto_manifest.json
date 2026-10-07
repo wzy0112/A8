@@ -1,0 +1,26 @@
+{
+  "run_dir": "D:\\SUMO_A9_Project\\validation_results\\part10_multiclass_continuation_2k\\seed_42",
+  "model": "D:\\SUMO_A9_Project\\validation_results\\part10_multiclass_continuation_2k\\seed_42\\ppo_curriculum_final.zip",
+  "normalization": "D:\\SUMO_A9_Project\\validation_results\\part10_multiclass_continuation_2k\\seed_42\\vec_normalize_final.pkl",
+  "seeds_per_severity": 1,
+  "stochastic_candidates": 2,
+  "candidates": [
+    "noop",
+    "ppo_det",
+    "ppo_stoch_1",
+    "ppo_stoch_2"
+  ],
+  "objectives_minimized": [
+    "recovery_time_objective_s",
+    "total_time_loss_veh_h",
+    "queue_exposure_veh_h",
+    "co2_total_kg",
+    "hard_braking_events_total"
+  ],
+  "severity_seed_starts": {
+    "light": 42,
+    "moderate": 42,
+    "severe": 42
+  },
+  "pareto_scope": "within_severity_and_evaluation_seed"
+}

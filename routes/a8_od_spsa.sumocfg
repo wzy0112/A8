@@ -15,9 +15,9 @@
         <ignore-junction-blocker value="15" />
     </processing>
     <routing>
-        <device.rerouting.probability value="0.82" />
+        <device.rerouting.probability value="0.2" />
         <device.rerouting.period value="300" />
-        <weights.random-factor value="1.2" />
+        <weights.random-factor value="1.0" />
         <device.rerouting.threshold.factor value="1.05" />
         <device.rerouting.threshold.constant value="60" />
     </routing>

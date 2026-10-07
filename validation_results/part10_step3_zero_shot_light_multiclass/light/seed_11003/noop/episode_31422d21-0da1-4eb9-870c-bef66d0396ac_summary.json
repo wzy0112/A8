@@ -1,0 +1,156 @@
+{
+  "episode_id": "31422d21-0da1-4eb9-870c-bef66d0396ac",
+  "policy_version": "part10_step3_zero_shot_light_v1",
+  "sumo_seed": 1990489557,
+  "decision_period_s": 300,
+  "started_at_utc": "2026-09-20T17:44:31.632764+00:00",
+  "D": {
+    "scenario_id": "light_b471_speed_reduction_v1",
+    "severity": "light",
+    "site_id": "b471_groebenried_dachauer_moos",
+    "mechanism": "speed_reduction",
+    "onset_t": 1200,
+    "peak_start_t": 2130,
+    "peak_end_t": 2730,
+    "recovery_end_t": 3050,
+    "demand_phase": "non_peak",
+    "max_sim_time_t": 12000,
+    "peak_speed_mps": 8.33,
+    "closed_lane_indices": [],
+    "restricted_vclasses": [
+      "passenger",
+      "truck",
+      "bus"
+    ]
+  },
+  "S0": {
+    "time_s": 1200.0,
+    "mean_speed_mps": 16.35077837194499,
+    "running_vehicle_count": 3931,
+    "mean_waiting_time_s": 7.861612821165098,
+    "mean_time_loss_s": 225.57520075509288,
+    "halting_vehicle_count": 693,
+    "pr_t": 0.9806356095602862
+  },
+  "X": {
+    "time_of_day_bucket": "pre_peak",
+    "demand_phase": "non_peak",
+    "day_type": "fixed"
+  },
+  "M": [
+    {
+      "t": 1500.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    },
+    {
+      "t": 1800.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    },
+    {
+      "t": 2100.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    },
+    {
+      "t": 2400.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    },
+    {
+      "t": 2700.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    },
+    {
+      "t": 3000.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    },
+    {
+      "t": 3300.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    },
+    {
+      "t": 3330.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [],
+      "applied": true
+    }
+  ],
+  "outcomes": {
+    "recovered": true,
+    "truncated": false,
+    "final_time_s": 3330.0,
+    "reward_total": 0.786542880879544,
+    "candidate_start_t": 2730.0,
+    "threshold_entry_time_s": 2730.0,
+    "confirmation_time_s": 3330.0,
+    "recovery_time_s": 1530.0,
+    "co2_total_kg": 42756.062233264136,
+    "hard_braking_events_total": 132342,
+    "queue_exposure_veh_h": 1082.145,
+    "total_time_loss_veh_h": 1711.6437648414599
+  },
+  "state_log_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_step3_zero_shot_light_multiclass\\light\\seed_11003\\noop\\episode_31422d21-0da1-4eb9-870c-bef66d0396ac_state_log.csv",
+  "trajectory_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_step3_zero_shot_light_multiclass\\light\\seed_11003\\noop\\episode_31422d21-0da1-4eb9-870c-bef66d0396ac_second_trajectory.csv",
+  "epoch_log_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_step3_zero_shot_light_multiclass\\light\\seed_11003\\noop\\episode_31422d21-0da1-4eb9-870c-bef66d0396ac_epoch_log.csv",
+  "final_management_state": []
+}

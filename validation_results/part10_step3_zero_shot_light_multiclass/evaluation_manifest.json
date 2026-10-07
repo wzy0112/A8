@@ -1,0 +1,42 @@
+{
+  "experiment": "part10_step3_zero_shot_severity",
+  "training_policy": "frozen Moderate-5k PPO",
+  "model_path": "D:\\SUMO_A9_Project\\validation_results\\part10_step2_smoke_fast\\seed_42\\ppo_curriculum_final.zip",
+  "vecnormalize_path": "D:\\SUMO_A9_Project\\validation_results\\part10_step2_smoke_fast\\seed_42\\vec_normalize_final.pkl",
+  "ppo_deterministic": true,
+  "vecnormalize_training": false,
+  "vecnormalize_norm_reward": false,
+  "sampling_mode": "mixed_fixed",
+  "severity_weights": {
+    "light": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "moderate": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "severe": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "severities_run": [
+    "light"
+  ],
+  "n_paired_seeds_per_severity": 5,
+  "policies": [
+    "noop",
+    "ppo"
+  ],
+  "decision_period_s": 300,
+  "default_base_seeds": {
+    "light": 11000,
+    "moderate": 10000,
+    "severe": 12000
+  },
+  "note": "evaluation_seed is the reproducibility/pairing seed. RandomizedFloodRecoveryEnv deterministically draws an actual SUMO seed from its independent SUMO RNG; paired NOOP/PPO must therefore share actual_sumo_seed, but it need not equal evaluation_seed."
+}

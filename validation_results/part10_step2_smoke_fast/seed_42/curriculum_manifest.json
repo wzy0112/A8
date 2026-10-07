@@ -1,0 +1,9 @@
+[
+  {
+    "stage": 1,
+    "sampling_mode": "fixed_moderate",
+    "timesteps": 5000,
+    "model_path": "D:\\SUMO_A9_Project\\validation_results\\part10_step2_smoke_fast\\seed_42\\stage_1_fixed_moderate\\ppo_stage_model.zip",
+    "normalization_path": "D:\\SUMO_A9_Project\\validation_results\\part10_step2_smoke_fast\\seed_42\\stage_1_fixed_moderate\\vec_normalize.pkl"
+  }
+]

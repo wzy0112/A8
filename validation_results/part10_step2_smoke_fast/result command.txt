@@ -1,0 +1,114 @@
+-------------------------------------------
+| recovery/               |               |
+|    completed_episodes   | 164           |
+|    mean_recovery_time_s | 7.15e+03      |
+|    recovery_rate        | 0.579         |
+| rollout/                |               |
+|    ep_len_mean          | 29.4          |
+|    ep_rew_mean          | -1.68         |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 79            |
+|    time_elapsed         | 267018        |
+|    total_timesteps      | 5056          |
+| train/                  |               |
+|    approx_kl            | 0.00039817672 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.68         |
+|    explained_variance   | 0.685         |
+|    learning_rate        | 0.0003        |
+|    loss                 | 3.61          |
+|    n_updates            | 156           |
+|    policy_gradient_loss | -0.003        |
+|    value_loss           | 5.08          |
+-------------------------------------------
+ 100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5,056/5,000  [ 3 days, 1:21:42 < 0:00:00 , ? it/s ]
+Simulation ended at time: 2100.00.
+Reason: Libsumo requested termination.
+Performance:
+ Duration: 718.53s
+ Real time factor: 2.92264
+ UPS: 9688.927919
+Vehicles:
+ Inserted: 7169 (Loaded: 10143)
+ Running: 5768
+ Waiting: 2389
+ Teleports: 1 (Collisions: 1)
+ Emergency Stops: 5
+ Emergency Braking: 13
+Statistics (avg of 1401):
+ RouteLength: 24771.59
+ Speed: 23.53
+ Duration: 1106.44
+ WaitingTime: 85.52
+ TimeLoss: 205.85
+ DepartDelay: 1.37
+Simulation ended at time: 6900.00.
+Reason: Libsumo requested termination.
+Performance:
+ Duration: 3875.39s
+ Real time factor: 1.78047
+ UPS: 10285.697808
+Vehicles:
+ Inserted: 13226 (Loaded: 18462)
+ Running: 5458
+ Waiting: 5236
+ Emergency Stops: 8
+ Emergency Braking: 12
+Statistics (avg of 7768):
+ RouteLength: 29659.39
+ Speed: 16.24
+ Duration: 2275.93
+ WaitingTime: 616.56
+ TimeLoss: 1030.81
+ DepartDelay: 43.53
+Simulation ended at time: 2700.00.
+Reason: Libsumo requested termination.
+Performance:
+ Duration: 1007.13s
+ Real time factor: 2.68089
+ UPS: 10758.371569
+Vehicles:
+ Inserted: 9228 (Loaded: 13664)
+ Running: 7086
+ Waiting: 3877
+ Teleports: 1 (Collisions: 1)
+ Emergency Stops: 10
+ Emergency Braking: 16
+Statistics (avg of 2142):
+ RouteLength: 24754.28
+ Speed: 21.63
+ Duration: 1251.73
+ WaitingTime: 161.11
+ TimeLoss: 306.23
+ DepartDelay: 3.15
+Simulation ended at time: 8700.00.
+Reason: Libsumo requested termination.
+Performance:
+ Duration: 5104.52s
+ Real time factor: 1.70437
+ UPS: 9944.891629
+Vehicles:
+ Inserted: 13672 (Loaded: 18462)
+ Running: 5118
+ Waiting: 4790
+ Teleports: 1 (Collisions: 1)
+ Emergency Stops: 10
+ Emergency Braking: 17
+Statistics (avg of 8554):
+ RouteLength: 30449.16
+ Speed: 14.99
+ Duration: 2654.96
+ WaitingTime: 848.61
+ TimeLoss: 1345.18
+ DepartDelay: 122.64
+DijkstraRouter answered 53950 queries and explored 3376.23 edges on average.
+DijkstraRouter spent 180.41s answering queries (3.34ms on average).
+DijkstraRouter answered 97181 queries and explored 3408.72 edges on average.
+DijkstraRouter spent 309.20s answering queries (3.18ms on average).
+DijkstraRouter answered 574361 queries and explored 3598.47 edges on average.
+DijkstraRouter spent 1789.76s answering queries (3.12ms on average).
+DijkstraRouter answered 747201 queries and explored 3467.92 edges on average.
+DijkstraRouter spent 2177.32s answering queries (2.91ms on average).
+Curriculum training complete.

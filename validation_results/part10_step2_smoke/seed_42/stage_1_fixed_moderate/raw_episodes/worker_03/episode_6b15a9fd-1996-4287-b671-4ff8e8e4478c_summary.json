@@ -1,0 +1,2293 @@
+{
+  "episode_id": "6b15a9fd-1996-4287-b671-4ff8e8e4478c",
+  "policy_version": "ppo_step9_curriculum_fixed_moderate_v1",
+  "sumo_seed": 231423720,
+  "decision_period_s": 300,
+  "started_at_utc": "2026-09-15T23:06:23.884166+00:00",
+  "D": {
+    "scenario_id": "moderate_a8_lane_closure_v1",
+    "severity": "moderate",
+    "site_id": "a8_sulzemoos_dachau",
+    "mechanism": "lane_closure",
+    "onset_t": 1200,
+    "peak_start_t": 5530,
+    "peak_end_t": 6130,
+    "recovery_end_t": 10200,
+    "demand_phase": "non_peak",
+    "max_sim_time_t": 12000,
+    "peak_speed_mps": 8.33,
+    "closed_lane_indices": [
+      0,
+      1
+    ],
+    "restricted_vclasses": [
+      "passenger",
+      "truck",
+      "bus"
+    ]
+  },
+  "S0": {
+    "time_s": 1200.0,
+    "mean_speed_mps": 16.59739166600017,
+    "running_vehicle_count": 3976,
+    "mean_waiting_time_s": 5.168762575452717,
+    "mean_time_loss_s": 228.33041349498973,
+    "halting_vehicle_count": 688,
+    "pr_t": 0.9954262068297361
+  },
+  "X": {
+    "time_of_day_bucket": "pre_peak",
+    "demand_phase": "non_peak",
+    "day_type": "fixed"
+  },
+  "M": [
+    {
+      "t": 1500.0,
+      "tactic_id": 4,
+      "tactic": "reroute",
+      "location": "S6_St2051",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 1800.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S6_St2051",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 2100.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S2_b471",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 2400.0,
+      "tactic_id": 4,
+      "tactic": "reroute",
+      "location": "S6_St2051",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "remove",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 2700.0,
+      "tactic_id": 1,
+      "tactic": "vsl",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "remove",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3000.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S2_b471",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3300.0,
+      "tactic_id": 4,
+      "tactic": "reroute",
+      "location": "S4_St2054",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "remove",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3600.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S3_a8",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3900.0,
+      "tactic_id": 2,
+      "tactic": "lane_control",
+      "location": "S6_St2051",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 4200.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S2_b471",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 4500.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S5_a8",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 4800.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S6_St2051",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "modify",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 5100.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S5_a8",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "modify",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 5400.0,
+      "tactic_id": 2,
+      "tactic": "lane_control",
+      "location": "S2_b471",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 5700.0,
+      "tactic_id": 2,
+      "tactic": "lane_control",
+      "location": "S6_St2051",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "modify",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6000.0,
+      "tactic_id": 4,
+      "tactic": "reroute",
+      "location": "S1_b471",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6300.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S2_b471",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6600.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S4_St2054",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "remove",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6900.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S4_St2054",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 7200.0,
+      "tactic_id": 1,
+      "tactic": "vsl",
+      "location": "S5_a8",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 7500.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S5_a8",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 7800.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S2_b471",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 8100.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S3_a8",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 8400.0,
+      "tactic_id": 1,
+      "tactic": "vsl",
+      "location": "S5_a8",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "modify",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 8700.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9000.0,
+      "tactic_id": 2,
+      "tactic": "lane_control",
+      "location": "S1_b471",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9300.0,
+      "tactic_id": 2,
+      "tactic": "lane_control",
+      "location": "S3_a8",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "remove",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9600.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S2_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9900.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S6_St2051",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "modify",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 10200.0,
+      "tactic_id": 3,
+      "tactic": "truck_ban",
+      "location": "S6_St2051",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "modify",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 10500.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S4_St2054",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 10800.0,
+      "tactic_id": 4,
+      "tactic": "reroute",
+      "location": "S1_b471",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "modify",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 10821.0,
+      "tactic_id": 1,
+      "tactic": "vsl",
+      "location": "S1_b471",
+      "intensity": 3,
+      "intensity_name": "high",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 3,
+          "intensity_name": "high",
+          "location_id": "S4_St2054",
+          "location_index": 3,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S5_a8",
+          "location_index": 4,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        },
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S6_St2051",
+          "location_index": 5,
+          "operation": "apply_or_modify",
+          "tactic_id": 3,
+          "tactic_name": "truck_ban"
+        }
+      ],
+      "applied": true
+    }
+  ],
+  "outcomes": {
+    "recovered": true,
+    "truncated": false,
+    "final_time_s": 10821.0,
+    "reward_total": -1.0710024887528904,
+    "candidate_start_t": 10221.0,
+    "threshold_entry_time_s": 10221.0,
+    "confirmation_time_s": 10821.0,
+    "recovery_time_s": 9021.0,
+    "co2_total_kg": 127293.30654806923,
+    "hard_braking_events_total": 443186,
+    "queue_exposure_veh_h": 9314.781111111111,
+    "total_time_loss_veh_h": 11581.802408855328
+  },
+  "state_log_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_step2_smoke\\seed_42\\stage_1_fixed_moderate\\raw_episodes\\worker_03\\episode_6b15a9fd-1996-4287-b671-4ff8e8e4478c_state_log.csv",
+  "trajectory_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_step2_smoke\\seed_42\\stage_1_fixed_moderate\\raw_episodes\\worker_03\\episode_6b15a9fd-1996-4287-b671-4ff8e8e4478c_second_trajectory.csv",
+  "epoch_log_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_step2_smoke\\seed_42\\stage_1_fixed_moderate\\raw_episodes\\worker_03\\episode_6b15a9fd-1996-4287-b671-4ff8e8e4478c_epoch_log.csv",
+  "final_management_state": [
+    {
+      "intensity_index": 3,
+      "intensity_name": "high",
+      "location_id": "S1_b471",
+      "location_index": 0,
+      "operation": "apply_or_modify",
+      "tactic_id": 1,
+      "tactic_name": "vsl"
+    },
+    {
+      "intensity_index": 2,
+      "intensity_name": "medium",
+      "location_id": "S1_b471",
+      "location_index": 0,
+      "operation": "apply_or_modify",
+      "tactic_id": 2,
+      "tactic_name": "lane_control"
+    },
+    {
+      "intensity_index": 1,
+      "intensity_name": "low",
+      "location_id": "S1_b471",
+      "location_index": 0,
+      "operation": "apply_or_modify",
+      "tactic_id": 4,
+      "tactic_name": "reroute"
+    },
+    {
+      "intensity_index": 3,
+      "intensity_name": "high",
+      "location_id": "S2_b471",
+      "location_index": 1,
+      "operation": "apply_or_modify",
+      "tactic_id": 2,
+      "tactic_name": "lane_control"
+    },
+    {
+      "intensity_index": 2,
+      "intensity_name": "medium",
+      "location_id": "S2_b471",
+      "location_index": 1,
+      "operation": "apply_or_modify",
+      "tactic_id": 3,
+      "tactic_name": "truck_ban"
+    },
+    {
+      "intensity_index": 3,
+      "intensity_name": "high",
+      "location_id": "S4_St2054",
+      "location_index": 3,
+      "operation": "apply_or_modify",
+      "tactic_id": 3,
+      "tactic_name": "truck_ban"
+    },
+    {
+      "intensity_index": 1,
+      "intensity_name": "low",
+      "location_id": "S5_a8",
+      "location_index": 4,
+      "operation": "apply_or_modify",
+      "tactic_id": 1,
+      "tactic_name": "vsl"
+    },
+    {
+      "intensity_index": 1,
+      "intensity_name": "low",
+      "location_id": "S5_a8",
+      "location_index": 4,
+      "operation": "apply_or_modify",
+      "tactic_id": 3,
+      "tactic_name": "truck_ban"
+    },
+    {
+      "intensity_index": 2,
+      "intensity_name": "medium",
+      "location_id": "S6_St2051",
+      "location_index": 5,
+      "operation": "apply_or_modify",
+      "tactic_id": 2,
+      "tactic_name": "lane_control"
+    },
+    {
+      "intensity_index": 1,
+      "intensity_name": "low",
+      "location_id": "S6_St2051",
+      "location_index": 5,
+      "operation": "apply_or_modify",
+      "tactic_id": 3,
+      "tactic_name": "truck_ban"
+    }
+  ]
+}

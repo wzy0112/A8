@@ -1,0 +1,7 @@
+{
+  "completed_episodes": 0,
+  "recovered_episodes": 0,
+  "recovery_rate": null,
+  "mean_recovery_time_s": null,
+  "episodes": []
+}

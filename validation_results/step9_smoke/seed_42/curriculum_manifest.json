@@ -1,0 +1,23 @@
+[
+  {
+    "stage": 1,
+    "sampling_mode": "fixed_moderate",
+    "timesteps": 64,
+    "model_path": "D:\\SUMO_A9_Project\\validation_results\\step9_smoke\\seed_42\\stage_1_fixed_moderate\\ppo_stage_model.zip",
+    "normalization_path": "D:\\SUMO_A9_Project\\validation_results\\step9_smoke\\seed_42\\stage_1_fixed_moderate\\vec_normalize.pkl"
+  },
+  {
+    "stage": 2,
+    "sampling_mode": "mixed_fixed",
+    "timesteps": 64,
+    "model_path": "D:\\SUMO_A9_Project\\validation_results\\step9_smoke\\seed_42\\stage_2_mixed_fixed\\ppo_stage_model.zip",
+    "normalization_path": "D:\\SUMO_A9_Project\\validation_results\\step9_smoke\\seed_42\\stage_2_mixed_fixed\\vec_normalize.pkl"
+  },
+  {
+    "stage": 3,
+    "sampling_mode": "randomized",
+    "timesteps": 64,
+    "model_path": "D:\\SUMO_A9_Project\\validation_results\\step9_smoke\\seed_42\\stage_3_randomized\\ppo_stage_model.zip",
+    "normalization_path": "D:\\SUMO_A9_Project\\validation_results\\step9_smoke\\seed_42\\stage_3_randomized\\vec_normalize.pkl"
+  }
+]

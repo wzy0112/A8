@@ -1,0 +1,17 @@
+{
+  "completed_episodes": 1,
+  "recovered_episodes": 1,
+  "recovery_rate": 1.0,
+  "mean_recovery_time_s": 1530.0,
+  "episodes": [
+    {
+      "num_timesteps": 96,
+      "recovered": true,
+      "recovery_time_s": 1530.0,
+      "co2_total_kg": 38552.871250446166,
+      "hard_braking_events_total": 147156,
+      "queue_exposure_veh_h": 1110.07,
+      "total_time_loss_veh_h": 1730.2840607670034
+    }
+  ]
+}

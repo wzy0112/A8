@@ -1,0 +1,1504 @@
+{
+  "episode_id": "1212c273-d924-4c0e-b246-583ecffcd883",
+  "policy_version": "part10_step3_zero_shot_moderate_v1",
+  "sumo_seed": 1022802243,
+  "decision_period_s": 300,
+  "started_at_utc": "2026-09-21T23:26:26.266046+00:00",
+  "D": {
+    "scenario_id": "moderate_a8_lane_closure_v1",
+    "severity": "moderate",
+    "site_id": "a8_sulzemoos_dachau",
+    "mechanism": "lane_closure",
+    "onset_t": 1200,
+    "peak_start_t": 5530,
+    "peak_end_t": 6130,
+    "recovery_end_t": 10200,
+    "demand_phase": "non_peak",
+    "max_sim_time_t": 12000,
+    "peak_speed_mps": 8.33,
+    "closed_lane_indices": [
+      0,
+      1
+    ],
+    "restricted_vclasses": [
+      "passenger",
+      "truck",
+      "bus"
+    ]
+  },
+  "S0": {
+    "time_s": 1200.0,
+    "mean_speed_mps": 16.63010136481811,
+    "running_vehicle_count": 3937,
+    "mean_waiting_time_s": 4.180594361188723,
+    "mean_time_loss_s": 224.47168757766698,
+    "halting_vehicle_count": 619,
+    "pr_t": 0.997387966368591
+  },
+  "X": {
+    "time_of_day_bucket": "pre_peak",
+    "demand_phase": "non_peak",
+    "day_type": "fixed"
+  },
+  "M": [
+    {
+      "t": 1500.0,
+      "tactic_id": 1,
+      "tactic": "vsl",
+      "location": "S1_b471",
+      "intensity": 2,
+      "intensity_name": "medium",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 1800.0,
+      "tactic_id": 4,
+      "tactic": "reroute",
+      "location": "S2_b471",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 2100.0,
+      "tactic_id": 2,
+      "tactic": "lane_control",
+      "location": "S3_a8",
+      "intensity": 1,
+      "intensity_name": "low",
+      "operation": "activate",
+      "management_changed": true,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 2400.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 2700.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3000.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3300.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3600.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 3900.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 4200.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 4500.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 4800.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 5100.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 5400.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 5700.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6000.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6300.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6600.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 6900.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 7200.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 7500.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 7800.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 8100.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 8400.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 8700.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9000.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9300.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9600.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 9900.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 10200.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 10500.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 10800.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 11100.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 11400.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 11700.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    },
+    {
+      "t": 12000.0,
+      "tactic_id": 0,
+      "tactic": "hold",
+      "location": "S1_b471",
+      "intensity": 0,
+      "intensity_name": "off",
+      "operation": "hold",
+      "management_changed": false,
+      "active_measures_after": [
+        {
+          "intensity_index": 2,
+          "intensity_name": "medium",
+          "location_id": "S1_b471",
+          "location_index": 0,
+          "operation": "apply_or_modify",
+          "tactic_id": 1,
+          "tactic_name": "vsl"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S2_b471",
+          "location_index": 1,
+          "operation": "apply_or_modify",
+          "tactic_id": 4,
+          "tactic_name": "reroute"
+        },
+        {
+          "intensity_index": 1,
+          "intensity_name": "low",
+          "location_id": "S3_a8",
+          "location_index": 2,
+          "operation": "apply_or_modify",
+          "tactic_id": 2,
+          "tactic_name": "lane_control"
+        }
+      ],
+      "applied": true
+    }
+  ],
+  "outcomes": {
+    "recovered": false,
+    "truncated": true,
+    "final_time_s": 12000.0,
+    "reward_total": -3.0689742081651206,
+    "candidate_start_t": null,
+    "threshold_entry_time_s": null,
+    "confirmation_time_s": null,
+    "recovery_time_s": null,
+    "co2_total_kg": 150324.95337311947,
+    "hard_braking_events_total": 481911,
+    "queue_exposure_veh_h": 9569.815555555555,
+    "total_time_loss_veh_h": 12501.696477442769
+  },
+  "state_log_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_post2k_moderate_seed42_three_policies\\moderate\\seed_42\\scripted\\episode_1212c273-d924-4c0e-b246-583ecffcd883_state_log.csv",
+  "trajectory_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_post2k_moderate_seed42_three_policies\\moderate\\seed_42\\scripted\\episode_1212c273-d924-4c0e-b246-583ecffcd883_second_trajectory.csv",
+  "epoch_log_ref": "D:\\SUMO_A9_Project\\validation_results\\part10_post2k_moderate_seed42_three_policies\\moderate\\seed_42\\scripted\\episode_1212c273-d924-4c0e-b246-583ecffcd883_epoch_log.csv",
+  "final_management_state": [
+    {
+      "intensity_index": 2,
+      "intensity_name": "medium",
+      "location_id": "S1_b471",
+      "location_index": 0,
+      "operation": "apply_or_modify",
+      "tactic_id": 1,
+      "tactic_name": "vsl"
+    },
+    {
+      "intensity_index": 1,
+      "intensity_name": "low",
+      "location_id": "S2_b471",
+      "location_index": 1,
+      "operation": "apply_or_modify",
+      "tactic_id": 4,
+      "tactic_name": "reroute"
+    },
+    {
+      "intensity_index": 1,
+      "intensity_name": "low",
+      "location_id": "S3_a8",
+      "location_index": 2,
+      "operation": "apply_or_modify",
+      "tactic_id": 2,
+      "tactic_name": "lane_control"
+    }
+  ]
+}

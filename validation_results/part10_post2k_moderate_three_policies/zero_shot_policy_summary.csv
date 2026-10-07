@@ -1,0 +1,4 @@
+﻿severity,policy,episodes,recovered_episodes,recovery_rate,mean_recovery_time_s_recovered_only,mean_total_time_loss_veh_h,mean_queue_exposure_veh_h,mean_co2_total_kg,mean_hard_braking_events_total,mean_reward_total
+moderate,noop,1,1,1.0,6311.0,8460.293935730002,6151.541944444444,112460.4439976289,390979.0,-0.8841063072904944
+moderate,scripted,1,0,0.0,,12501.696477442769,9569.815555555555,150324.95337311947,481911.0,-3.068974242080003
+moderate,ppo,1,1,1.0,5740.0,7956.515233757942,5867.748333333333,106084.09191011004,371847.0,-0.5115375171881169

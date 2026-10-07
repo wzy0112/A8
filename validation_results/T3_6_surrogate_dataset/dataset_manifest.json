@@ -1,0 +1,77 @@
+{
+  "dataset_version": "surrogate_dataset_v1",
+  "episode_root": "D:\\SUMO_A9_Project\\validation_results",
+  "episode_records": 108,
+  "flood_forecast_samples": 2799,
+  "recovery_surrogate_samples": 2799,
+  "failed_episode_count": 15,
+  "failures": [
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step4_noop_gym\\episode_34310fa9-f65e-4e2a-a041-613ac7099d2f_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_34310fa9-f65e-4e2a-a041-613ac7099d2f_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step4_noop_gym\\\\episode_34310fa9-f65e-4e2a-a041-613ac7099d2f_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step5_instrumented_noop\\episode_5cdc7edf-0d25-4e92-a664-7f1fcef329cc_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_5cdc7edf-0d25-4e92-a664-7f1fcef329cc_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step5_instrumented_noop\\\\episode_5cdc7edf-0d25-4e92-a664-7f1fcef329cc_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step6_tactic_library\\episode_42d99bcd-e476-4971-ac89-14a82bc65328_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_42d99bcd-e476-4971-ac89-14a82bc65328_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step6_tactic_library\\\\episode_42d99bcd-e476-4971-ac89-14a82bc65328_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step7_ppo\\moderate_seed_42\\raw_episodes\\worker_00\\episode_1998906e-a6aa-4c68-837b-5dd73c9ba47d_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_1998906e-a6aa-4c68-837b-5dd73c9ba47d_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step7_ppo\\\\moderate_seed_42\\\\raw_episodes\\\\worker_00\\\\episode_1998906e-a6aa-4c68-837b-5dd73c9ba47d_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step7_ppo_evaluation\\noop\\episode_7370bf1f-ffb5-42bd-b377-1f4bfa9efc99_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_7370bf1f-ffb5-42bd-b377-1f4bfa9efc99_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step7_ppo_evaluation\\\\noop\\\\episode_7370bf1f-ffb5-42bd-b377-1f4bfa9efc99_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step7_ppo_evaluation\\ppo\\episode_4f1c6736-6fb9-45d3-bb13-862c6b0e61ad_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_4f1c6736-6fb9-45d3-bb13-862c6b0e61ad_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step7_ppo_evaluation\\\\ppo\\\\episode_4f1c6736-6fb9-45d3-bb13-862c6b0e61ad_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_000\\noop\\episode_4b7fd9a5-0c97-4709-9085-82b600b349d1_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_4b7fd9a5-0c97-4709-9085-82b600b349d1_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_000\\\\noop\\\\episode_4b7fd9a5-0c97-4709-9085-82b600b349d1_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_000\\ppo\\episode_56d1c52f-1b9c-4de0-9949-fcd36c31cd0e_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_56d1c52f-1b9c-4de0-9949-fcd36c31cd0e_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_000\\\\ppo\\\\episode_56d1c52f-1b9c-4de0-9949-fcd36c31cd0e_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_001\\noop\\episode_a7ef548c-b7c6-472c-8c9b-1161b3b69b3d_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_a7ef548c-b7c6-472c-8c9b-1161b3b69b3d_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_001\\\\noop\\\\episode_a7ef548c-b7c6-472c-8c9b-1161b3b69b3d_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_001\\ppo\\episode_8a4f5f3a-e8f3-47ae-b446-5ce9fc346e6a_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_8a4f5f3a-e8f3-47ae-b446-5ce9fc346e6a_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_001\\\\ppo\\\\episode_8a4f5f3a-e8f3-47ae-b446-5ce9fc346e6a_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_002\\noop\\episode_23f22231-431c-48da-8e39-ac83cdabbcd5_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_23f22231-431c-48da-8e39-ac83cdabbcd5_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_002\\\\noop\\\\episode_23f22231-431c-48da-8e39-ac83cdabbcd5_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_002\\ppo\\episode_5207ed9a-46b9-4de3-826d-5c7cbea2bfb8_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_5207ed9a-46b9-4de3-826d-5c7cbea2bfb8_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_002\\\\ppo\\\\episode_5207ed9a-46b9-4de3-826d-5c7cbea2bfb8_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_003\\noop\\episode_298f880a-a12e-4267-abae-bf7eeb16b11c_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_298f880a-a12e-4267-abae-bf7eeb16b11c_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_003\\\\noop\\\\episode_298f880a-a12e-4267-abae-bf7eeb16b11c_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_003\\ppo\\episode_c71a3225-024e-49e5-9f28-54e58010974f_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_c71a3225-024e-49e5-9f28-54e58010974f_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_003\\\\ppo\\\\episode_c71a3225-024e-49e5-9f28-54e58010974f_state_log.csv')"
+    },
+    {
+      "summary_path": "D:\\SUMO_A9_Project\\validation_results\\step8_generalization\\episode_004\\noop\\episode_54119613-2b2f-4aaa-b103-2421a7b45aa6_summary.json",
+      "error": "FileNotFoundError('Could not resolve logged file for episode_54119613-2b2f-4aaa-b103-2421a7b45aa6_summary.json: None or D:\\\\SUMO_A9_Project\\\\validation_results\\\\step8_generalization\\\\episode_004\\\\noop\\\\episode_54119613-2b2f-4aaa-b103-2421a7b45aa6_state_log.csv')"
+    }
+  ],
+  "forecast_horizons_s": [
+    300,
+    600,
+    900,
+    1200,
+    1800
+  ]
+}

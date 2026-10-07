@@ -1,0 +1,611 @@
+{
+  "completed_episodes": 67,
+  "recovered_episodes": 20,
+  "recovery_rate": 0.29850746268656714,
+  "mean_recovery_time_s": 3630.2,
+  "episodes": [
+    {
+      "num_timesteps": 5124,
+      "recovered": true,
+      "recovery_time_s": 4311.0,
+      "co2_total_kg": 88955.94329467024,
+      "hard_braking_events_total": 295817,
+      "queue_exposure_veh_h": 3288.329166666667,
+      "total_time_loss_veh_h": 4856.125508617134
+    },
+    {
+      "num_timesteps": 5156,
+      "recovered": true,
+      "recovery_time_s": 1548.0,
+      "co2_total_kg": 38708.27858119445,
+      "hard_braking_events_total": 113315,
+      "queue_exposure_veh_h": 844.7105555555555,
+      "total_time_loss_veh_h": 1357.0151388900767
+    },
+    {
+      "num_timesteps": 5192,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 140243.94039239327,
+      "hard_braking_events_total": 473157,
+      "queue_exposure_veh_h": 10981.246388888889,
+      "total_time_loss_veh_h": 13677.828010839907
+    },
+    {
+      "num_timesteps": 5208,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 152243.92336664372,
+      "hard_braking_events_total": 407641,
+      "queue_exposure_veh_h": 11639.619722222222,
+      "total_time_loss_veh_h": 13848.740291003338
+    },
+    {
+      "num_timesteps": 5208,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 131330.71992152097,
+      "hard_braking_events_total": 325848,
+      "queue_exposure_veh_h": 9410.400555555556,
+      "total_time_loss_veh_h": 11106.760441490329
+    },
+    {
+      "num_timesteps": 5292,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 153347.81355737586,
+      "hard_braking_events_total": 508013,
+      "queue_exposure_veh_h": 14024.832222222221,
+      "total_time_loss_veh_h": 17422.69584280357
+    },
+    {
+      "num_timesteps": 5328,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 122830.44889734697,
+      "hard_braking_events_total": 422413,
+      "queue_exposure_veh_h": 7445.059444444444,
+      "total_time_loss_veh_h": 9835.034810837999
+    },
+    {
+      "num_timesteps": 5344,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 124619.16219888121,
+      "hard_braking_events_total": 409575,
+      "queue_exposure_veh_h": 9002.41888888889,
+      "total_time_loss_veh_h": 11302.771660147087
+    },
+    {
+      "num_timesteps": 5360,
+      "recovered": true,
+      "recovery_time_s": 1507.0,
+      "co2_total_kg": 36217.15551630656,
+      "hard_braking_events_total": 103867,
+      "queue_exposure_veh_h": 799.3636111111111,
+      "total_time_loss_veh_h": 1256.5474803725417
+    },
+    {
+      "num_timesteps": 5360,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 151897.68812637395,
+      "hard_braking_events_total": 487439,
+      "queue_exposure_veh_h": 10030.398888888889,
+      "total_time_loss_veh_h": 12749.708128171673
+    },
+    {
+      "num_timesteps": 5444,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 154353.74668145564,
+      "hard_braking_events_total": 381657,
+      "queue_exposure_veh_h": 14683.856944444444,
+      "total_time_loss_veh_h": 16559.22788866233
+    },
+    {
+      "num_timesteps": 5476,
+      "recovered": true,
+      "recovery_time_s": 9097.0,
+      "co2_total_kg": 133848.1553292335,
+      "hard_braking_events_total": 348423,
+      "queue_exposure_veh_h": 12238.058611111112,
+      "total_time_loss_veh_h": 14086.369224133583
+    },
+    {
+      "num_timesteps": 5496,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 137118.04777104847,
+      "hard_braking_events_total": 392471,
+      "queue_exposure_veh_h": 10746.137777777778,
+      "total_time_loss_veh_h": 13062.956301005363
+    },
+    {
+      "num_timesteps": 5512,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 133085.7168904263,
+      "hard_braking_events_total": 296394,
+      "queue_exposure_veh_h": 12645.136944444444,
+      "total_time_loss_veh_h": 14108.44647249183
+    },
+    {
+      "num_timesteps": 5560,
+      "recovered": true,
+      "recovery_time_s": 4187.0,
+      "co2_total_kg": 64060.526531029696,
+      "hard_braking_events_total": 170594,
+      "queue_exposure_veh_h": 3325.7733333333335,
+      "total_time_loss_veh_h": 4151.465153685016
+    },
+    {
+      "num_timesteps": 5596,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 166077.85815245975,
+      "hard_braking_events_total": 583013,
+      "queue_exposure_veh_h": 10932.3075,
+      "total_time_loss_veh_h": 14256.749958724236
+    },
+    {
+      "num_timesteps": 5612,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 144038.7859065184,
+      "hard_braking_events_total": 470504,
+      "queue_exposure_veh_h": 11956.603333333333,
+      "total_time_loss_veh_h": 14869.593370481562
+    },
+    {
+      "num_timesteps": 5648,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 125948.35720659657,
+      "hard_braking_events_total": 373508,
+      "queue_exposure_veh_h": 8313.442222222222,
+      "total_time_loss_veh_h": 10563.498844431246
+    },
+    {
+      "num_timesteps": 5696,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 133056.45610143186,
+      "hard_braking_events_total": 422969,
+      "queue_exposure_veh_h": 11127.52611111111,
+      "total_time_loss_veh_h": 13697.148069308356
+    },
+    {
+      "num_timesteps": 5732,
+      "recovered": true,
+      "recovery_time_s": 1967.0,
+      "co2_total_kg": 54227.25680952345,
+      "hard_braking_events_total": 182925,
+      "queue_exposure_veh_h": 1829.0733333333333,
+      "total_time_loss_veh_h": 2777.9262518898145
+    },
+    {
+      "num_timesteps": 5748,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 128615.2118728803,
+      "hard_braking_events_total": 433472,
+      "queue_exposure_veh_h": 8858.987222222222,
+      "total_time_loss_veh_h": 11218.414175022011
+    },
+    {
+      "num_timesteps": 5748,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 178794.57554597405,
+      "hard_braking_events_total": 599027,
+      "queue_exposure_veh_h": 15573.05388888889,
+      "total_time_loss_veh_h": 19101.440611753966
+    },
+    {
+      "num_timesteps": 5800,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 137311.3461124983,
+      "hard_braking_events_total": 366133,
+      "queue_exposure_veh_h": 10813.325277777778,
+      "total_time_loss_veh_h": 12646.242416767143
+    },
+    {
+      "num_timesteps": 5840,
+      "recovered": true,
+      "recovery_time_s": 2131.0,
+      "co2_total_kg": 57201.395934468484,
+      "hard_braking_events_total": 194402,
+      "queue_exposure_veh_h": 2047.4344444444444,
+      "total_time_loss_veh_h": 3093.6481350075314
+    },
+    {
+      "num_timesteps": 5884,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 141627.88301466146,
+      "hard_braking_events_total": 481461,
+      "queue_exposure_veh_h": 11649.230833333333,
+      "total_time_loss_veh_h": 14383.380615549413
+    },
+    {
+      "num_timesteps": 5884,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 165248.9080356555,
+      "hard_braking_events_total": 517247,
+      "queue_exposure_veh_h": 12443.927222222223,
+      "total_time_loss_veh_h": 15581.372557492397
+    },
+    {
+      "num_timesteps": 5900,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 150935.0610874766,
+      "hard_braking_events_total": 470838,
+      "queue_exposure_veh_h": 11009.122222222222,
+      "total_time_loss_veh_h": 13501.87870769544
+    },
+    {
+      "num_timesteps": 5992,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 172320.23236433565,
+      "hard_braking_events_total": 496623,
+      "queue_exposure_veh_h": 15417.553055555556,
+      "total_time_loss_veh_h": 18258.2888113385
+    },
+    {
+      "num_timesteps": 6016,
+      "recovered": true,
+      "recovery_time_s": 9062.0,
+      "co2_total_kg": 127941.90943645973,
+      "hard_braking_events_total": 386502,
+      "queue_exposure_veh_h": 9144.333611111111,
+      "total_time_loss_veh_h": 11321.972804978626
+    },
+    {
+      "num_timesteps": 6020,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 105159.34900722338,
+      "hard_braking_events_total": 239647,
+      "queue_exposure_veh_h": 9234.786666666667,
+      "total_time_loss_veh_h": 10528.683929342202
+    },
+    {
+      "num_timesteps": 6052,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 172367.56751009525,
+      "hard_braking_events_total": 606320,
+      "queue_exposure_veh_h": 12874.485,
+      "total_time_loss_veh_h": 16761.457688681166
+    },
+    {
+      "num_timesteps": 6096,
+      "recovered": true,
+      "recovery_time_s": 2660.0,
+      "co2_total_kg": 65519.9717891093,
+      "hard_braking_events_total": 223058,
+      "queue_exposure_veh_h": 2612.5119444444445,
+      "total_time_loss_veh_h": 3807.446909500677
+    },
+    {
+      "num_timesteps": 6104,
+      "recovered": true,
+      "recovery_time_s": 5989.0,
+      "co2_total_kg": 111250.22340533446,
+      "hard_braking_events_total": 413032,
+      "queue_exposure_veh_h": 5714.185,
+      "total_time_loss_veh_h": 8226.704953215929
+    },
+    {
+      "num_timesteps": 6144,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 147455.24681677506,
+      "hard_braking_events_total": 439882,
+      "queue_exposure_veh_h": 9616.761666666667,
+      "total_time_loss_veh_h": 12241.065985888727
+    },
+    {
+      "num_timesteps": 6172,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 147612.43742197342,
+      "hard_braking_events_total": 407403,
+      "queue_exposure_veh_h": 10990.355277777779,
+      "total_time_loss_veh_h": 13225.570024688966
+    },
+    {
+      "num_timesteps": 6232,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 125761.22719682603,
+      "hard_braking_events_total": 394910,
+      "queue_exposure_veh_h": 7629.204166666666,
+      "total_time_loss_veh_h": 9891.187062482457
+    },
+    {
+      "num_timesteps": 6256,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 130934.55061532928,
+      "hard_braking_events_total": 338681,
+      "queue_exposure_veh_h": 10191.729444444445,
+      "total_time_loss_veh_h": 11958.1662458265
+    },
+    {
+      "num_timesteps": 6276,
+      "recovered": true,
+      "recovery_time_s": 9152.0,
+      "co2_total_kg": 148032.51692278066,
+      "hard_braking_events_total": 498308,
+      "queue_exposure_veh_h": 9820.256388888889,
+      "total_time_loss_veh_h": 12610.02628728683
+    },
+    {
+      "num_timesteps": 6308,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 125977.73741356409,
+      "hard_braking_events_total": 323432,
+      "queue_exposure_veh_h": 10680.355833333333,
+      "total_time_loss_veh_h": 12373.138090982657
+    },
+    {
+      "num_timesteps": 6384,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 157646.3536771176,
+      "hard_braking_events_total": 463657,
+      "queue_exposure_veh_h": 10774.549444444445,
+      "total_time_loss_veh_h": 13505.872706280057
+    },
+    {
+      "num_timesteps": 6392,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 121605.73635687461,
+      "hard_braking_events_total": 360688,
+      "queue_exposure_veh_h": 8307.110277777778,
+      "total_time_loss_veh_h": 10302.534944785035
+    },
+    {
+      "num_timesteps": 6412,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 129933.08301376687,
+      "hard_braking_events_total": 389218,
+      "queue_exposure_veh_h": 9691.095833333333,
+      "total_time_loss_veh_h": 11837.749505382217
+    },
+    {
+      "num_timesteps": 6416,
+      "recovered": true,
+      "recovery_time_s": 1520.0,
+      "co2_total_kg": 36470.98469975324,
+      "hard_braking_events_total": 103323,
+      "queue_exposure_veh_h": 796.3808333333334,
+      "total_time_loss_veh_h": 1239.3920512673044
+    },
+    {
+      "num_timesteps": 6444,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 137165.0168286066,
+      "hard_braking_events_total": 453399,
+      "queue_exposure_veh_h": 10900.962777777779,
+      "total_time_loss_veh_h": 13361.357239816023
+    },
+    {
+      "num_timesteps": 6448,
+      "recovered": true,
+      "recovery_time_s": 1536.0,
+      "co2_total_kg": 38294.670365182676,
+      "hard_braking_events_total": 115339,
+      "queue_exposure_veh_h": 878.2605555555556,
+      "total_time_loss_veh_h": 1407.7189260425928
+    },
+    {
+      "num_timesteps": 6488,
+      "recovered": true,
+      "recovery_time_s": 2151.0,
+      "co2_total_kg": 57017.73240253545,
+      "hard_braking_events_total": 197909,
+      "queue_exposure_veh_h": 2138.2366666666667,
+      "total_time_loss_veh_h": 3176.322203955177
+    },
+    {
+      "num_timesteps": 6544,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 164862.8024269259,
+      "hard_braking_events_total": 482974,
+      "queue_exposure_veh_h": 12625.23111111111,
+      "total_time_loss_veh_h": 15257.48004045729
+    },
+    {
+      "num_timesteps": 6548,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 146814.59135501253,
+      "hard_braking_events_total": 513653,
+      "queue_exposure_veh_h": 11874.174166666666,
+      "total_time_loss_veh_h": 14822.894342958916
+    },
+    {
+      "num_timesteps": 6580,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 138204.1066370061,
+      "hard_braking_events_total": 413641,
+      "queue_exposure_veh_h": 11513.575,
+      "total_time_loss_veh_h": 14157.800517534874
+    },
+    {
+      "num_timesteps": 6624,
+      "recovered": true,
+      "recovery_time_s": 2408.0,
+      "co2_total_kg": 61101.16625182907,
+      "hard_braking_events_total": 200196,
+      "queue_exposure_veh_h": 2400.5705555555555,
+      "total_time_loss_veh_h": 3456.355494093412
+    },
+    {
+      "num_timesteps": 6640,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 173484.8144942854,
+      "hard_braking_events_total": 606201,
+      "queue_exposure_veh_h": 13404.416388888889,
+      "total_time_loss_veh_h": 17144.266286611935
+    },
+    {
+      "num_timesteps": 6672,
+      "recovered": true,
+      "recovery_time_s": 1548.0,
+      "co2_total_kg": 38094.52381253986,
+      "hard_braking_events_total": 111414,
+      "queue_exposure_veh_h": 917.4466666666667,
+      "total_time_loss_veh_h": 1425.2449301759111
+    },
+    {
+      "num_timesteps": 6680,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 148515.8605515037,
+      "hard_braking_events_total": 430406,
+      "queue_exposure_veh_h": 13812.172222222222,
+      "total_time_loss_veh_h": 16434.06919262363
+    },
+    {
+      "num_timesteps": 6700,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 140845.86282616082,
+      "hard_braking_events_total": 378247,
+      "queue_exposure_veh_h": 11132.848055555556,
+      "total_time_loss_veh_h": 12972.973089283583
+    },
+    {
+      "num_timesteps": 6740,
+      "recovered": true,
+      "recovery_time_s": 4315.0,
+      "co2_total_kg": 87439.26791798399,
+      "hard_braking_events_total": 284521,
+      "queue_exposure_veh_h": 3237.108888888889,
+      "total_time_loss_veh_h": 4758.8674523787595
+    },
+    {
+      "num_timesteps": 6776,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 153096.0828066793,
+      "hard_braking_events_total": 359669,
+      "queue_exposure_veh_h": 13618.044166666667,
+      "total_time_loss_veh_h": 15453.485780729623
+    },
+    {
+      "num_timesteps": 6832,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 164882.0341575335,
+      "hard_braking_events_total": 477143,
+      "queue_exposure_veh_h": 13280.717222222222,
+      "total_time_loss_veh_h": 16030.042044822265
+    },
+    {
+      "num_timesteps": 6836,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 136037.52645716968,
+      "hard_braking_events_total": 445886,
+      "queue_exposure_veh_h": 11029.510555555555,
+      "total_time_loss_veh_h": 13563.780261321657
+    },
+    {
+      "num_timesteps": 6864,
+      "recovered": true,
+      "recovery_time_s": 1614.0,
+      "co2_total_kg": 48559.988191438926,
+      "hard_braking_events_total": 160444,
+      "queue_exposure_veh_h": 1551.5155555555555,
+      "total_time_loss_veh_h": 2366.792867965289
+    },
+    {
+      "num_timesteps": 6876,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 136374.57406647954,
+      "hard_braking_events_total": 475774,
+      "queue_exposure_veh_h": 10610.834722222222,
+      "total_time_loss_veh_h": 13359.245301287585
+    },
+    {
+      "num_timesteps": 6912,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 154407.13441607944,
+      "hard_braking_events_total": 504587,
+      "queue_exposure_veh_h": 11476.458333333334,
+      "total_time_loss_veh_h": 14786.820152567838
+    },
+    {
+      "num_timesteps": 6932,
+      "recovered": true,
+      "recovery_time_s": 4217.0,
+      "co2_total_kg": 84990.84134790178,
+      "hard_braking_events_total": 268297,
+      "queue_exposure_veh_h": 3899.3302777777776,
+      "total_time_loss_veh_h": 5372.117181161368
+    },
+    {
+      "num_timesteps": 6964,
+      "recovered": true,
+      "recovery_time_s": 1684.0,
+      "co2_total_kg": 40245.97813516306,
+      "hard_braking_events_total": 121647,
+      "queue_exposure_veh_h": 986.4225,
+      "total_time_loss_veh_h": 1527.8825156508854
+    },
+    {
+      "num_timesteps": 6972,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 133585.87950998527,
+      "hard_braking_events_total": 418652,
+      "queue_exposure_veh_h": 12120.446666666667,
+      "total_time_loss_veh_h": 14557.123620827339
+    },
+    {
+      "num_timesteps": 7028,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 156267.2888783946,
+      "hard_braking_events_total": 445667,
+      "queue_exposure_veh_h": 11233.898333333333,
+      "total_time_loss_veh_h": 13702.371200900745
+    },
+    {
+      "num_timesteps": 7064,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 160699.58223922196,
+      "hard_braking_events_total": 495170,
+      "queue_exposure_veh_h": 12142.904166666667,
+      "total_time_loss_veh_h": 15016.144252155513
+    },
+    {
+      "num_timesteps": 7100,
+      "recovered": false,
+      "recovery_time_s": null,
+      "co2_total_kg": 129717.85194935901,
+      "hard_braking_events_total": 401814,
+      "queue_exposure_veh_h": 10220.275555555556,
+      "total_time_loss_veh_h": 12483.260563604215
+    }
+  ]
+}

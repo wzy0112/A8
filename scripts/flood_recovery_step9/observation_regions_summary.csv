@@ -1,0 +1,7 @@
+region_id,region_type,description,n_edges,total_length_m,mean_positive_speed_drop_mps,max_positive_speed_drop_mps,impact_score,dominant_scenario,physically_connected
+S1_groebenried_b471,fixed_flood_site,"B471 Gröbenried flood site, both directions",24,5598.51,10.237368143546572,11.070651790957136,57314.00792532692,severe,True
+S2_dachauer_moos_b471,fixed_flood_site,"B471 Dachauer Moos flood site, both directions",25,6832.639999999999,2.144385429087941,5.834683599167819,14651.813658203428,light,True
+S3_palsweiser_moos_a8,fixed_flood_site,"A8 Palsweiser Moos flood site, both directions",9,8623.63,22.251754859655428,28.751397849462364,191890.9007603703,moderate,True
+S4_speed_impact,speed_impact,Automatically selected connected high-speed-drop region,139,10641.849999999999,7.5683435644069865,20.54370318269738,80541.17696088448,moderate,True
+S5_speed_impact,speed_impact,Automatically selected connected high-speed-drop region,29,5778.38,12.217937930269414,20.456955153422506,70601.49465166347,moderate,True
+S6_speed_impact,speed_impact,Automatically selected connected high-speed-drop region,27,4982.080000000001,6.1304140600721775,9.14792025862069,30542.213280404398,moderate,True
